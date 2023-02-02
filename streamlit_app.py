@@ -17,6 +17,7 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
+my.cur.execute("insert into fruit_load_list values('test');")
 
 # Display the table on the page.
 streamlit.dataframe(my_fruit_list)
@@ -25,6 +26,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
+my.cur.execute("insert into fruit_load_list values('test');")
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
@@ -45,3 +47,4 @@ streamlit.dataframe(my_data_row)
 
 add_my_fruit = streamlit.text_input('What fruit would you like to Add?')
 streamlit.write('Thankls for adding ', add_my_fruit)
+my.cur.execute("insert into fruit_load_list values('test');")
